@@ -1,5 +1,5 @@
 # This module lets you arp spoof desired targets, and proxy their RDP connections if they have NLA disabled.
-# If they don't, we forward their connection without spawning PyRDP
+# If they don't, we forward their connection without spawning PyRDP.
 # 
 # Targets the whole subnet by default. Can be configured in bettercap or in this file.
 #   
@@ -17,9 +17,16 @@
 # Otherwise only connections going to and coming from the external network.
 set arp.spoof.internal true
 
+# If you intend to spoof the gateway, you may need to enable the full-duplex spoofing, which will spoof both the gateway and the targets.
+# You will need to enable this if you only seem to intercept half the traffic.
+set arp.spoof.fullduplex false
+
 # Setup targets
-# Uncomment to specify targets
+# Uncomment to specify targets, otherwise our target is the whole subnet.
+# Your arp-spoof targets should be the client attempting to connect to RDP
 #set arp.spoof.targets 192.168.0.50, 192.168.0.51
+
+# Your rdp-proxy targets should be the RDP servers to which clients will try to connect
 #set rdp.proxy.targets 192.168.0.50
 
 # Start everything
